@@ -20,3 +20,8 @@ def face_recognition(imgs,test_img):
         results.append(to_append)
 
     return results
+
+
+
+results = face_recognition(['Daniel_Wang.jpg','Dave_Lin.jpg','Jeff_Chow.jpg'],'test.jpg')
+print(results)
