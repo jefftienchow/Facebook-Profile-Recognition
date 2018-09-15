@@ -1,0 +1,5 @@
+import facebook
+
+access = "EAAaJZCDDvNSEBAGg1DAZCKZCqZBEeJJ0mO8uiTGi7qGO7QrekiKlT68ROqvXiZBMvYsrWGgI3byLxFT9QdiZBIAaZBfXccg9zyqFDQoObcUOfZBiVJZCMPKb83XfskbArvYScSQLxvHSsY4aq8txHSEE7ZANLZC3kNOFJ4h5iG3iR0lF94koPnR70EoSTEt8JTZAzFCVuf0ZBo71CcAZDZD"
+graph = facebook.GraphAPI(access_token=access, version="2.12")
+print(graph)
