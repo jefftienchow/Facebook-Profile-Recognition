@@ -20,44 +20,18 @@ if not os.path.exists(directory):
 print('locating tagged photos on facebook...')
 
 for friend in friend_data:
-	friend_ids.append(friend['id'] + '/picture?height=500&width=500')
+	friend_ids.append(friend['id'])
 
 for id in friend_ids:
-	f_url = 'https://graph.facebook.com/v3.1/' + id + '&access_token=' + ACCESS_TOKEN
+	f_url = 'https://graph.facebook.com/v3.1/' + id + '/picture?height=500&width=500' + '&access_token=' + ACCESS_TOKEN
 	print(f_url)
-	#f = requests.get(f_url)
-	#print (f.json())
-	propics.append(f_url)#f.json()['data'])
-
-# while r_url:
-# 	for d in photo_data:
-# 		photo_ids.append(d['id'])
-# 	if 'paging' in r.json() and 'next' in r.json()['paging']:
-# 		r_url = r.json()['paging']['next']
-# 		r = requests.get(r_url)
-# 		photo_data = r.json()['data']
-# 	else:
-# 		if photo_type == 'tagged':
-# 			print('locating uploaded pictures on facebook...')
-# 			photo_type = 'uploaded'
-# 			r_url = 'https://graph.facebook.com/v2.12/me/photos?type=' + photo_type + '&access_token=' + ACCESS_TOKEN
-# 			r = requests.get(r_url)
-# 			photo_data = r.json()['data']
-# 		else:
-# 			r_url = ""
+	propics.append(f_url)
 
 print('downloading photos...')
 
 for i,propic in enumerate(propics):
 	print(propic)
-	urllib.request.urlretrieve(propic, os.path.join(directory, friend_ids[i]))
-
-# for photo_id in photo_ids:
-# 	photo_url = "https://graph.facebook.com/" + str(photo_id) + "/picture?access_token=" + ACCESS_TOKEN + "&type=normal"
-# 	photo_name = photo_id + '.jpg'
-# 	urllib.request.urlretrieve(photo_url, os.path.join(directory, photo_name))
-
-print('successfully downloaded ' + str(len(photo_ids)) + ' photos')
+	urllib.request.urlretrieve(propic, os.path.join(directory, friend_ids[i] + '.jpg'))
 
 
 def get_fb_token(app_id, app_secret):
