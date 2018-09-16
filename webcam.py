@@ -1,13 +1,14 @@
-import pygame
-import pygame.camera
-from pygame.locals import *
+from cv2 import *
+import numpy as np
+# initialize the camera
+cam = VideoCapture(0)   # 0 -> index of camera
+s, img = cam.read()
+if s:    # frame captured without any errors
+    #namedWindow("cam-test",WINDOW_NORMAL)#CV_WINDOW_AUTOSIZE)
+    #imshow("cam-test",img)
+    #waitKey(0)
+    #destroyWindow("cam-test")
 
-pygame.init()
+    img = add(img,np.array([50.0]))
 
-pygame.camera.init()
-
-camlist = pygame.camera.list_cameras()
-if camlist:
-    cam = pygame.camera.Camera(camlist[0],(640,480))
-
-
+    imwrite("filename.jpg",img) #save image
