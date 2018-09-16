@@ -2,8 +2,6 @@
 
 import face_recognition
 
-
-
 def face_recog(imgs,test_img):
     '''
     img: a list of image paths, one for each person
@@ -18,16 +16,16 @@ def face_recog(imgs,test_img):
 
     results = []
     for i in face_encodings:
-        to_append = face_recognition.compare_faces([i], test_face_encoding,tolerance = 0.5)[0]
+        to_append = face_recognition.compare_faces([i], test_face_encoding,tolerance = 0.4)[0]
         results.append(to_append)
 
     return results
 
 
 
-results = face_recog(['Daniel_Wang.jpg','Dave_Lin.jpg','Jeff_Chow.jpg'],'test.jpg')
-print(results)
-results = face_recog(['Tom_Cruise.jpg','Will_Smith.jpg','Aaron_Kwok.jpg'],'test-2.jpg')
-print(results)
-results = face_recog(['Tom_Cruise.jpg','Leonardo_DiCaprio.jpg','The_Rock.jpg'],'test-3.jpg')
-print(results)
+##results = face_recog(['Daniel_Wang.jpg','Dave_Lin.jpg','Jeff_Chow.jpg'],'test.jpg')
+##print(results)
+##results = face_recog(['Tom_Cruise.jpg','Will_Smith.jpg','Aaron_Kwok.jpg'],'test-2.jpg')
+##print(results)
+##results = face_recog(['Tom_Cruise.jpg','Leonardo_DiCaprio.jpg','The_Rock.jpg'],'test-3.jpg')
+##print(results)

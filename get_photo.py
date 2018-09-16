@@ -4,16 +4,17 @@ import urllib
 import sys
 
 def get_photo_func():
-
-	ACCESS_TOKEN = "EAAaJZCDDvNSEBAAVkugeZARYfmEwyGFOgUOJwzjd5j6bnFTPszK86BubtpUMC1gZBjK8Xr3h4LC62JSL3kB8lrNBBeZALQ0J5REN7p6zlzZAgLJx9ZA9FM6Sz4QBauevMUjtxY5NnGbdf9pq6yGZCLPZCkEkT14qw0fZCRZCZBEvhWzhMQruh2aj1WaaHVb5h0cDo0ZD"
+	'''
+	Save images (profile pics of your friends) to the facebook_pictures folder
+	'''
+	ACCESS_TOKEN = "EAAaJZCDDvNSEBAG4ABvmQFxZARKzel1ZBsRX1KLesHNPFGSC75LiDZCR4dwlWmawWcCAHeO2SoVpH9oCr0tiLnspQ5EUkxeAWzrbN81eQusjqcIw0yWnzO2lx4IQ2JhJP93jZCFH5dZB6GI86rD8chjkOL51cOZBrDLxVuxTHytgKTWdGg8NTmjqxfMZA4ilJAQkFoPfIhde9QZDZD"   
 	photo_type = 'tagged'
 	r_url = 'https://graph.facebook.com/v3.1/me/friends?access_token=' + ACCESS_TOKEN
 	r = requests.get(r_url)
-	print(r.json())
+	#print(r.json())
 	friend_data = r.json()['data']
 	friend_ids = []
 	propics = []
-
 
 	directory = 'facebook_pictures'
 	if not os.path.exists(directory):
@@ -21,6 +22,7 @@ def get_photo_func():
 
 	print('locating tagged photos on facebook...')
 
+        
 	for friend in friend_data:
 		friend_ids.append(friend['id'])
 
@@ -28,6 +30,8 @@ def get_photo_func():
 		f_url = 'https://graph.facebook.com/v3.1/' + id + '/picture?height=500&width=500' + '&access_token=' + ACCESS_TOKEN
 		print(f_url)
 		propics.append(f_url)
+		id_photo = f_url.split('/')[4]
+
 
 	print('downloading photos...')
 
@@ -36,12 +40,12 @@ def get_photo_func():
 		urllib.request.urlretrieve(propic, os.path.join(directory, friend_ids[i] + '.jpg'))
 
 
-	def get_fb_token(app_id, app_secret):
-		url = 'https://graph.facebook.com/oauth/access_token'
-		payload = {
-	        'grant_type': 'client_credentials',
-	        'client_id': app_id,
-	        'client_secret': app_secret
-	    }
-		response = requests.post(url, params=payload)
-		return response.json()['access_token']
+##	def get_fb_token(app_id, app_secret):
+##		url = 'https://graph.facebook.com/oauth/access_token'
+##		payload = {
+##	        'grant_type': 'client_credentials',
+##	        'client_id': app_id,
+##	        'client_secret': app_secret
+##	    }
+##		response = requests.post(url, params=payload)
+##		return response.json()['access_token']
