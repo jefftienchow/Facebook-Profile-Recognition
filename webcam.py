@@ -1,16 +1,32 @@
 from cv2 import *
 import numpy as np
+import os
 
-# initialize the camera
-cam = VideoCapture(0)   # 0 -> index of camera
-s, img = cam.read()
-if s:    # frame captured without any errors
-    #namedWindow("cam-test",WINDOW_NORMAL)#CV_WINDOW_AUTOSIZE)
-    #imshow("cam-test",img)
-    #waitKey(0)
-    #destroyWindow("cam-test")
+import get_photo
+import facial_recog
 
-    img = add(img,np.array([50.0]))
+# Takes a picture and then returns the facebook profile
+def main():
+	get_photo.get_photo_func()
 
-    imwrite("filename.jpg",img) #save image
+	urls = get_picture_urls()
+	results = facial_recog.face_recog(urls, 'filename.jpg')
+	print(results)
 
+
+def get_picture_urls():
+	return ['facebook_pictures/'+filename for filename in os.listdir('facebook_pictures')]
+
+
+def capture():
+	# initialize the camera
+	cam = VideoCapture(0)   # 0 -> index of camera
+	s, img = cam.read()
+	if s:
+	    img = add(img,np.array([50.0]))
+	    imwrite("filename.jpg",img) #save image
+
+
+
+if __name__ == '__main__':
+	main()

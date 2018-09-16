@@ -2,6 +2,8 @@
 
 import face_recognition
 
+
+
 def face_recog(imgs,test_img):
     '''
     img: a list of image paths, one for each person
