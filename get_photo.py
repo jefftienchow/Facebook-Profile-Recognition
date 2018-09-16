@@ -21,7 +21,11 @@ def get_photo_func():
 	directory = 'facebook_pictures'
 	if not os.path.exists(directory):
 		os.makedirs(directory)
-
+	
+	directory2 = 'static'
+	if not os.path.exists(directory2):
+		os.makedirs(directory2)
+		
 	print('locating tagged photos on facebook...')
 
 	friend_ids = [friend['id'] for friend in friend_data]
@@ -37,7 +41,7 @@ def get_photo_func():
 	for i,propic in enumerate(propics):
 		#print(propic)
 		urllib.request.urlretrieve(propic, os.path.join(directory, friend_ids[i] + '.jpg'))
-
+		urllib.request.urlretrieve(propic, os.path.join(directory2, friend_ids[i] + '.jpg'))
 
 ##	def get_fb_token(app_id, app_secret):
 ##		url = 'https://graph.facebook.com/oauth/access_token'

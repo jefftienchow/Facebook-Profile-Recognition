@@ -15,7 +15,11 @@ def hi():
 
 @app.route('/take', methods = ['POST'])
 def take():
-    return pipeline.main(False)
+    x = pipeline.main(False)
+    print(x)
+    var = 'static/' + x['id'] + '.jpg'
+    return render_template("other.html",variable = var, name = x['name'])
+
 
 @app.route('/uploader', methods = ['POST'])
 def upload():
@@ -23,7 +27,10 @@ def upload():
     if request.method == 'POST':
         f = request.files['file']
         f.save('filename.jpg')
-        return pipeline.main(True)
+        x = pipeline.main(True)
+        print(x)
+        var = '/static/' + x['id'] + '.jpg'
+        return render_template("other.html",variable = var, name = x['name'])
 
 if __name__== "__main__":
     app.run(debug=True)

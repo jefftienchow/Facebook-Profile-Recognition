@@ -14,16 +14,20 @@ ACCESS_TOKEN = 'EAAaJZCDDvNSEBAIF8u2AyRZCDYvenn8QYGmGLTLU0ujyq5NZBCJFXl7iEtmKDHM
 
 def main(photo):
 	get_photo.get_photo_func()
-	if photo != None:
-		webcam.capture()
+	if not photo:
+                webcam.capture()
 	paths = get_picture_paths()
 	ordered_ids = [path.split('/')[1] for path in paths]
 	results = facial_recog.face_recog(paths, 'filename.jpg')
 	print(results)
-	target = [ordered_ids[i].split('.')[0] for i in range(len(paths)) if results[i]][0]
-
+	try:
+		target = [ordered_ids[i].split('.')[0] for i in range(len(paths)) if results[i]][0]
+	except:
+		print('No one recgnized')
+		return
 	graph = facebook.GraphAPI(access_token= ACCESS_TOKEN, version="3.0")
 	target_info = graph.get_object(id=target)
+	print(target_info)
 	return target_info
 
 def get_picture_paths():
