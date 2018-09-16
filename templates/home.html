@@ -12,43 +12,25 @@
 
 
 <script>
-    function handle_upload(){
-        console.log('hello')
-        $.post("/batman", function(data){
-            console.log(data)
-        })
-    }
-
-    $(document).ready(function(){
-        $("#upload").click(handle_upload)
-    })
 
 
 
     function handle_take_photo(){
         console.log('hello')
-        $.post("/batman", function(data){
+        $.post("/take", function(data){
+            console.log('????')
             console.log(data)
+
         })
     }
 
     $(document).ready(function(){
-        $("#upload").click(handle_take_photo)
+        $("#take_photo").click(handle_take_photo)
     })
 
-
-    function handle_search(){
-        console.log('hello')
-        $.post("/batman", function(data){
-            console.log(data)
-        })
-    }
-
-    $(document).ready(function(){
-        $("#upload").click(handle_search)
-    })
 
 </script>
+<link rel="stylesheet" href="../static/style.css">
 
 <body>
 
@@ -61,14 +43,16 @@
     <form action = "http://localhost:5000/uploader" method = "POST"
          enctype = "multipart/form-data">
          <input type = "file" name = "file" />
+
+        <button id = "take_photo" type = "button">
+            Take picture
+        </button>
+
+        <input type = "submit">
+
       </form>
 
-    <button id = "take_photo">
-        Take picture
-    </button>
 
-    <button id = "search">
-        Search for profile
-    </button>
+
 </body>
 </html>
