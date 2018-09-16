@@ -13,3 +13,16 @@ The Facebook graphics API (https://facebook-sdk.readthedocs.io/en/latest/api.htm
 4. Face recognition on both sides
 5. Mathcing the faces
 6. Provide recommendations (links to profile)
+
+# Demonstration
+Database
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/Aaron_Kwok.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/Leonardo_DiCaprio.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/The_Rock.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/Tom_Cruise.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/Will_Smith.jpg" height="150">
+
+Test Files
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/test.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/test-2.jpg" height="150">
+<img src="https://github.com/jefftienchow/Facebook-Profile-Recognition/blob/master/test-3.jpg" height="150">
