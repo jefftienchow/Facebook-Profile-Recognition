@@ -36,3 +36,6 @@ for friend in all_photos:
 for keys, values in photos_dic.items():
     print(keys)
     print(values)
+
+
+url = 'https://graph.facebook.com/' + id + '?fields=images&access_token=' + your_token
