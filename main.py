@@ -13,7 +13,7 @@ def home():
 def hi():
     return render_template("other.html")
 
-@app.route('/take', methods = ['POST'])
+@app.route('/take', methods = ['POST', 'GET'])
 def take():
     x = pipeline.main(False)
     print(x)
