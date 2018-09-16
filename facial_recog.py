@@ -2,7 +2,7 @@
 
 import face_recognition
 
-def face_recognition(imgs,test_img):
+def face_recog(imgs,test_img):
     '''
     img: a list of image paths, one for each person
     test_img: path of the img to the tested
@@ -23,5 +23,7 @@ def face_recognition(imgs,test_img):
 
 
 
-results = face_recognition(['Daniel_Wang.jpg','Dave_Lin.jpg','Jeff_Chow.jpg'],'test.jpg')
+#results = face_recog(['Daniel_Wang.jpg','Dave_Lin.jpg','Jeff_Chow.jpg'],'test.jpg')
+#print(results)
+results = face_recog(['Tom_Cruise.jpg','Will_Smith.jpg','Aaron_Kwok.jpg'],'test-2.jpg')
 print(results)
