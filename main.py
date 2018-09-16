@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import pipeline
 
 app = Flask(__name__)
 
@@ -14,17 +15,15 @@ def hi():
 
 @app.route('/take', methods = ['POST'])
 def take():
-    photo = '5'
-    data = {'1':photo}
-    return jsonify(data)
+    return pipeline.main(False)
 
 @app.route('/uploader', methods = ['POST'])
 def upload():
     print ("hi")
     if request.method == 'POST':
         f = request.files['file']
-        f.save(f.filename)
-        return render_template('end.html')
+        f.save('filename.jpg')
+        return pipeline.main(True)
 
 if __name__== "__main__":
     app.run(debug=True)

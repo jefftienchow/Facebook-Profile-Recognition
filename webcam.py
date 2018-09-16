@@ -19,5 +19,6 @@ def capture():
 	    del(cam)
 
 
+
 if __name__ == '__main__':
 	capture()

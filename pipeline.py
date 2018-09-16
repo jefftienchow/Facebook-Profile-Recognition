@@ -12,9 +12,10 @@ ACCESS_TOKEN = 'EAAaJZCDDvNSEBAIF8u2AyRZCDYvenn8QYGmGLTLU0ujyq5NZBCJFXl7iEtmKDHM
 
 # Takes a picture and then returns the facebook profile
 
-def main():
+def main(photo):
 	get_photo.get_photo_func()
-	webcam.capture()
+	if photo != None:
+		webcam.capture()
 	paths = get_picture_paths()
 	ordered_ids = [path.split('/')[1] for path in paths]
 	results = facial_recog.face_recog(paths, 'filename.jpg')
@@ -23,7 +24,7 @@ def main():
 
 	graph = facebook.GraphAPI(access_token= ACCESS_TOKEN, version="3.0")
 	target_info = graph.get_object(id=target)
-	print(target_info)
+	return target_info
 
 def get_picture_paths():
 	return ['facebook_pictures/'+filename for filename in os.listdir('facebook_pictures')]
