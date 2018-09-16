@@ -4,16 +4,70 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-    <button>
-        Upload
-    </button>
 
-    <button>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+<script>
+    function handle_upload(){
+        console.log('hello')
+        $.post("/batman", function(data){
+            console.log(data)
+        })
+    }
+
+    $(document).ready(function(){
+        $("#upload").click(handle_upload)
+    })
+
+
+
+    function handle_take_photo(){
+        console.log('hello')
+        $.post("/batman", function(data){
+            console.log(data)
+        })
+    }
+
+    $(document).ready(function(){
+        $("#upload").click(handle_take_photo)
+    })
+
+
+    function handle_search(){
+        console.log('hello')
+        $.post("/batman", function(data){
+            console.log(data)
+        })
+    }
+
+    $(document).ready(function(){
+        $("#upload").click(handle_search)
+    })
+
+</script>
+
+<body>
+
+    <h1>
+        Welcome to Stalker Pro!
+    </h1>
+    <h2>
+        Choose an image, or take a picture of who you want to stalk!
+    </h2>
+    <form action = "http://localhost:5000/uploader" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+      </form>
+
+    <button id = "take_photo">
         Take picture
     </button>
 
-    <button>
+    <button id = "search">
         Search for profile
     </button>
 </body>
