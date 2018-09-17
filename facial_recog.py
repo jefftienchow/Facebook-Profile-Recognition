@@ -12,14 +12,39 @@ def face_recog(imgs,test_img):
     face_encodings = [face_recognition.face_encodings(face)[0] for face in faces]
 
     test_face = face_recognition.load_image_file(test_img)
-    test_face_encoding = face_recognition.face_encodings(test_face)[0]
-
+    try:
+        test_face_encoding = face_recognition.face_encodings(test_face)[0]
+    except:
+        return [False for _ in range(len(imgs))]
     results = []
-    for i in face_encodings:
-        to_append = face_recognition.compare_faces([i], test_face_encoding,tolerance = 0.4)[0]
-        results.append(to_append)
+
+
+    
+    thresholds = [0.6,0.55,0.5,0.45,0.4]
+
+    for t in thresholds:
+        results = []
+        for i in face_encodings:
+            to_append = face_recognition.compare_faces([i], test_face_encoding,tolerance = t)[0]
+            results.append(to_append)
+        print(results)
+        if results.count(True) >= 2:
+            # we only want one match
+            continue
+        else:
+            break
+
+##    
+##    for i in face_encodings:
+##        to_append = face_recognition.compare_faces([i], test_face_encoding,tolerance = 0.4)[0]
+##        results.append(to_append)
 
     return results
+
+
+
+
+
 
 
 

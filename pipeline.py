@@ -7,7 +7,7 @@ import get_photo
 import webcam
 import facial_recog
 
-ACCESS_TOKEN = 'EAAaJZCDDvNSEBAIF8u2AyRZCDYvenn8QYGmGLTLU0ujyq5NZBCJFXl7iEtmKDHM0An2XXRVXFGZAFUlHEpLfMkC78ONsNsTL5IVvldUx40nb12cC9CL9MGPRNRZCICEY9u8CGmgEmMN2ziGWoEtOw2MdyZAF0TQpwF7WuE2RXzDsqmID9kiaAhwrtxPtCZAougE2QpuPiNZBZBwZDZD'
+ACCESS_TOKEN = 'EAAaJZCDDvNSEBABZBBUOq6p1mOun1dm64MiUBWrQ5o24keV4HxmPZBOyjxq4JJYQt8bZAUisuK1D1QuTuqPz0iLR3iWGU8OU2J7ur7Ybs57cwwtFkrhIN4gamBcN6OfyoNHkXoZB76UI6ByXBD2ugm4ikh4Oi9Piu79ZAkidsKYuI69hJRIeA3s2xw4lauSKrnoORAYhKZB1sonIVyWoZBRji4NIC7PA2KuHmdrWgtaBqgZDZD'
 	
 
 # Takes a picture and then returns the facebook profile
@@ -24,7 +24,7 @@ def main(photo):
 		target = [ordered_ids[i].split('.')[0] for i in range(len(paths)) if results[i]][0]
 	except:
 		print('No one recgnized')
-		return
+		return {'name':"No one recognized" , 'id': "0"}
 	graph = facebook.GraphAPI(access_token= ACCESS_TOKEN, version="3.0")
 	target_info = graph.get_object(id=target)
 	print(target_info)

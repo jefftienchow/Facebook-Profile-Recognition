@@ -4,7 +4,7 @@ if __name__ == "__main__":
 
         import facebook
 
-        your_token = 'EAAaJZCDDvNSEBAFgZCV5HFSQNBRZALr3WVwHdPMIIET8jB082pdfOuZAoQdjcAhxgJxbxAqFRMyZC3OrV2pnoZAmFHZB94dQdCfyJvGVkJ9cIkvTWpcTxXUf8gLV87SrZCVnY4PLW7jRaVGKKIO8Butx4F6JycCjpPBjANxBpJz9nF8Ck7c5enNAko9alPASo9sZD'
+        your_token = 'EAAaJZCDDvNSEBABZBBUOq6p1mOun1dm64MiUBWrQ5o24keV4HxmPZBOyjxq4JJYQt8bZAUisuK1D1QuTuqPz0iLR3iWGU8OU2J7ur7Ybs57cwwtFkrhIN4gamBcN6OfyoNHkXoZB76UI6ByXBD2ugm4ikh4Oi9Piu79ZAkidsKYuI69hJRIeA3s2xw4lauSKrnoORAYhKZB1sonIVyWoZBRji4NIC7PA2KuHmdrWgtaBqgZDZD'
 
         graph = facebook.GraphAPI(access_token= your_token, version="3.0")
 
