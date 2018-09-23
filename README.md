@@ -1,4 +1,5 @@
 # Facebook-Profile-Recognition
+An Application written during HackMIT
 
 # Goal
 Facebook Profile Rocognition is an online application that allows you to find the Facebook profile of the person of interest by providing a input photo.
